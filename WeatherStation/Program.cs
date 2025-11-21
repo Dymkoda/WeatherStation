@@ -2,8 +2,9 @@
 class Program
 {
        static void Main(string[] args)
-    {
-        User user = new User();
-        Sensor sensor = new Sensor();
-    }
+       {
+            User user1 = new User(999, "Ja");
+            User user2 = new User(999, "Ja");
+            Sensor sensor1 = new Sensor();
+       }
 }
