@@ -7,7 +7,6 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace Database
 {
     public class WetherStationContext : DbContext
@@ -16,7 +15,8 @@ namespace Database
         public DbSet<Sensor> Sensors { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=WeatherStationDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False")
+            optionsBuilder
+                .UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=WeatherStationDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False")
                 .UseSeeding((context, _) =>
                 {
                     var users = context.Set<User>().FirstOrDefault();
